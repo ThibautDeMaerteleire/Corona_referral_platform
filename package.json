@@ -1,0 +1,9 @@
+{
+  "name": "Corona_referral_platform",
+  "version": "1.0.0",
+  "description": "A platform for clear communication between contact tracers, general practitioners, patients and hospitals.",
+  "main": "index.js",
+  "repository": "https://github.com/pgmgent-thibdema/Corona_referral_platform.git",
+  "author": "Thibaut De Maerteleire",
+  "license": "MIT"
+}
