@@ -8,10 +8,10 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn dev",
-    "dev": "NODE_ENV=development sass_watch ",
-    "build": " NODE_ENV=production sass_build ",
-    "sass_build": "sass ./styles/main.scss ./styles/main.css",
-    "sass_watch": "sass --watch ./styles/main.scss ./styles/main.css",
+    "dev": "yarn sass_watch ",
+    "build": "yarn sass_build ",
+    "sass_build": "sass ./views/sass/main.scss ./views/main.css",
+    "sass_watch": "sass --watch ./views/sass/main.scss ./views/main.css",
     "git_autosave": "yarn git_add && yarn git_commit && yarn git_push",
     "git_add": "git add .",
     "git_commit": "git commit -m \"auto commit\"",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
+    "dotenv": "^8.2.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   }
