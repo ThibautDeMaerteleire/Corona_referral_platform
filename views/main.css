@@ -10256,4 +10256,18 @@ footer p {
   margin: 1rem;
 }
 
+.addpatient main {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.addpatient main form {
+  margin-top: 2rem;
+}
+.addpatient main form input {
+  margin-bottom: 0.5rem;
+}
+.addpatient main form .form-group {
+  margin-bottom: 0rem;
+}
+
 /*# sourceMappingURL=main.css.map */
