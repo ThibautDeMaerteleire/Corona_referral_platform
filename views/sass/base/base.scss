@@ -5,3 +5,14 @@ body {
 img {
     max-width: 100%;
 }
+
+hr {
+    margin: 0;
+    border-top: 1px solid var(--light-green);
+}
+
+a {
+    i {
+        color: var(--white);
+    }
+}

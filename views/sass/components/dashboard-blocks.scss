@@ -1,0 +1,29 @@
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &_block {
+        width: 23%;
+        text-align: center;
+        display: block;
+        background-color: var(--dark-green);
+        margin: 1%;
+        padding: 5rem;
+        border-radius: 1rem;
+        transition: 0.3s;
+        &:hover {
+            transition: 0.3s;
+            text-decoration: none;
+            opacity: 0.9;
+        }
+
+        i {
+            font-size: 5rem;
+        }
+
+        h4 {
+            color: var(--white);
+            margin-top: 3rem;
+        }
+    }
+}

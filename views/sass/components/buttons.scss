@@ -1,0 +1,35 @@
+button {
+    background: var(--flashy-green) 0% 0% no-repeat padding-box;
+    box-shadow: 8px 8px 6px #15BB6A66;
+    border-radius: 0.5rem;
+    color: var(--light-green);
+    border: none;
+    padding: 1rem 2rem;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: 0.3s;
+
+    &:hover {
+        transition: 0.3s;
+        opacity: 0.9;
+        box-shadow: 30px 30px 30px var(--light-green);
+    }
+}
+
+
+.btn-2 {
+    background: var(--white);
+    border: 2px solid var(--dark-green);
+    border-radius: 0;
+    font-size: 1rem;
+    color: var(--dark-green);
+    transition: 0.3s;
+
+    &:hover {
+        transition: 0.3s;
+        background-color: var(--dark-green);
+        color: var(--white);
+        box-shadow: 30px 30px 30px #15BB6A66;
+    }
+}
