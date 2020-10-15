@@ -4,44 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
+    <link rel="icon" type="image/webp" href="./images/coronavirus.webp">
     <script defer type="module" src="./scripts/main.js"></script>
     <title>Home | Corona Referral Platform</title>
 </head>
 <body>
     <header>
-        <section class="header_top container-fluid">
-            <span class="logo"> Corona Referral</span>
-            <p>Check out our new version</p>
-            <div>
-                <a href="/login.html">login</a>
-                <span>/</span>
-                <a href="/register.html">register</a>
+        <section class="header_top">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a href="/" class="logo">Corona Referral</a>
+                <p>&#9995;  Check out our new version  &#9995;</p>
+                <div class="auth d-flex">
+                    <a href="/login.html">login</a>
+                    <span class="slash">/</span>
+                    <a href="/register.html">register</a>
+                </div>
             </div>
         </section>
-        <section class="header_nav" >
-            <ul>
-                <li><a href="/index.html">Home</a></li>
+        <nav class="header_nav">
+            <ul class="container-fluid d-flex justify-content-center align-items-center">
+                <li><a class="active" href="/index.html">Home</a></li>
                 <li><a href="/patient.html">Patiënt</a></li>
                 <li><a href="/huisarts.html">Huisarts</a></li>
                 <li><a href="/ziekenhuis.html">Ziekenhuis</a></li>
                 <li><a href="/overons.html">Over ons</a></li>
                 <li><a href="/contact.html">Contact</a></li>
             </ul>
-        </section>
+        </nav>
     </header>
     <main>
-        <section>
-            <img src="./images/best-practices-3-3.png" alt="Corona vermijden">
-            <div class="d-flex flex-column">
+        <section class="container d-flex justify-content-between align-items-center">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <img src="./images/best-practices-3-3.png" alt="Corona vermijden">
+            </div>
+            <div class="d-flex flex-column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <h1>Waarom ons platform ?</h1>
                 <p>
                     Ons platform zorgt voor een optimale communicatie tussen de patiënt, ziekenhuizen, huisartsen en contacttracers. Dankzij ons platform kan corona optimaal bestreden worden en kunnen we de verspreiding tegen gaan. 
                 </p>
             </div>
         </section>
+        <section style="padding: 5rem 0rem;" class="bg-light-green">
+            <h1 class="text-center">Onze doelgroepen</h1>
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="small-card">
+                    <img class="small-card_img" src="./images/national-cancer-institute-BxXgTQEw1M4-unsplash.jpg" alt="Patiënten">
+                    <h4 class="small-card_title">Voor Patiënten</h4>
+                    <p class="small-card_text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam…
+                    </p>
+                    <a class="small-card_link" href="/patients.html">Read more</a>
+                </div>
+                <div class="small-card">
+                    <img class="small-card_img" src="./images/national-cancer-institute-BxXgTQEw1M4-unsplash.jpg" alt="Patiënten">
+                    <h4 class="small-card_title">Voor Huisartsen</h4>
+                    <p class="small-card_text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam…
+                    </p>
+                    <a class="small-card_link" href="/huisartsen.html">Read more</a>
+                </div>
+                <div class="small-card">
+                    <img class="small-card_img" src="./images/national-cancer-institute-BxXgTQEw1M4-unsplash.jpg" alt="Patiënten">
+                    <h4 class="small-card_title">Voor Ziekenhuizen</h4>
+                    <p class="small-card_text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam…
+                    </p>
+                    <a class="small-card_link" href="/ziekenhuizen.html">Read more</a>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
+    <footer class="bg-flashy-green container-fluid">
+        <section class="d-flex align-items-center justify-content-between">
+            <nav class="d-flex align-items-center justify-content-between">
+                <a href="/gebruiksvoorwaarden.html">Gebruiksvoorwaarden</a>
+                <a href="/Privacy.html">Privacy</a>
+                <a href="/cookies.html">Cookies</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+            <div class="d-flex align-items-center justify-content-between">
+                <a rel="norefferer noopener" target="_blank" href="https://facebook.com/corona-referral-platform"><i class="fab fa-facebook-f"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://linkedin.com/corona-referral-platform"><i class="fab fa-linkedin-in"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://twitter.com/corona-referral-platform"><i class="fab fa-twitter"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://youtube.com/corona-referral-platform"><i class="fab fa-youtube"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://facebook.com/corona-referral-platform"><i class="fab fa-github"></i></a>
 
+            </div>
+        </section>
+        <hr>
+        <p>Corona Referral Platform 2020 - Thibaut De Maerteleire</p>
     </footer>
 </body>
 </html>
