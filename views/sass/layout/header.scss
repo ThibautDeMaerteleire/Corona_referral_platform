@@ -1,0 +1,76 @@
+header {
+    .header {
+        &_top {
+            background: transparent linear-gradient(180deg, #EFEFEF 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+            padding: 1rem;
+            p {
+                width: fit-content;
+                margin: 0;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--medium-green);
+                transition: 0.3s;
+                &:hover {
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    color: var(--dark-green);
+                }
+            }
+
+            .auth {
+                * {
+                    color: var(--dark-grey);
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+                a {
+                    transition: 0.3s;
+                    &:hover {
+                        text-decoration: none;
+                        transition: 0.3s;
+                        color: var(--flashy-green);
+                    }
+                }
+            }
+            
+        }
+
+        &_nav{
+            background-color: var(--flashy-green);
+            width: 100%;
+            ul {
+                margin: 0;
+                li {
+                    padding: 1rem 2rem;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: var(--light-green);
+                        transition: 0.3s;
+                        a {
+                            color: var(--dark-green);
+                        }
+                    }
+                    a {
+                        color: var(--white);
+                        font-weight: 600;
+                        padding: 0.1rem;
+                        transition: 0.1s;
+                        margin-bottom: 2px;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            form {
+                input {
+                    margin: 0.5rem 0rem;
+                    width: 20rem;
+                }
+            }
+        }
+    }
+}

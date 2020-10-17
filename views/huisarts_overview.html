@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="icon" type="image/webp" href="./images/coronavirus.webp">
+    <script src="https://kit.fontawesome.com/301a2cd1c0.js" crossorigin="anonymous"></script>
+    <script defer type="module" src="./scripts/main.js"></script>
+    <title>Overview | Corona Referral Platform</title>
+</head>
+<body class="huisarts_overview">
+    <header>
+        <section class="header_top">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a href="/" class="logo">Corona Referral</a>
+                <p>&#9995;  Check out our new version  &#9995;</p>
+                <div class="auth d-flex">
+                    <div class="auth dropdown">
+                        <span>huisarts@prive.be</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="header_nav d-flex justify-content-between align-items-center container-fluid ">
+            <ul class="d-flex align-items-center">
+                <li><a class="active" href="/dashboard.html">Dashboard</a></li>
+                <li><a href="/addpatient.html">Patiënt toevoegen</a></li>
+                <li><a href="/patienten.html">Patiënten</a></li>
+                <li><a href="/positive_cases.html">Positieve gevallen</a></li>
+                <li><a href="/tests_progress.html">Tests in progress</a></li>
+            </ul>
+            <form action="/searchpatients.php" method="POST">
+                <input class="form-control" placeholder="Search ..." type="text">
+            </form>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <section class="dashboard">
+            <a href="/addpatient.html" class="dashboard_block">
+                <i class="fas fa-plus"></i>
+                <h4>Patiënt toevoegen</h4>
+            </a>
+            <a href="/patienten.html" class="dashboard_block">
+                <i class="fas fa-users"></i>
+                <h4>Patiënten</h4>
+            </a>
+            <a href="/positive_cases.html" class="dashboard_block">
+                <i class="fas fa-vial"></i>
+                <h4>Positieve tests</h4>
+            </a>
+            <a href="/tests_progress.html" class="dashboard_block">
+                <i class="fas fa-vials"></i>
+                <h4>Tests in afwachting</h4>
+            </a>
+            <a href="/logout.html" class="dashboard_block">
+                <i class="fas fa-power-off"></i>
+                <h4>Logout</h4>
+            </a>
+        </section>
+    </main>
+    <footer class="bg-flashy-green container-fluid">
+        <section class="d-flex align-items-center justify-content-between">
+            <nav class="d-flex align-items-center justify-content-between">
+                <a href="/gebruiksvoorwaarden.html">Gebruiksvoorwaarden</a>
+                <a href="/Privacy.html">Privacy</a>
+                <a href="/cookies.html">Cookies</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+            <div class="socialmedia d-flex align-items-end justify-content-between">
+                <a rel="norefferer noopener" target="_blank" href="https://facebook.com/corona-referral-platform"><i class="fab fa-facebook-f"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://linkedin.com/corona-referral-platform"><i class="fab fa-linkedin-in"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://twitter.com/corona-referral-platform"><i class="fab fa-twitter"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://youtube.com/corona-referral-platform"><i class="fab fa-youtube"></i></a>
+                <a rel="norefferer noopener" target="_blank" href="https://github.com/pgmgent-thibdema/Corona_referral_platform"><i class="fab fa-github"></i></a>
+
+            </div>
+        </section>
+        <hr>
+        <p>Corona Referral Platform 2020 - Thibaut De Maerteleire</p>
+    </footer>
+</body>
+</html>
