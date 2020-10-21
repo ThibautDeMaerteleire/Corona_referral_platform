@@ -1,6 +1,4 @@
 <?php 
-    session_start();
-
     if(isset($_SESSION["type"])) {
         switch ($_SESSION["type"]) {
             case 'patient':

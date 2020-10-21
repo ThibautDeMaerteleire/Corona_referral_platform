@@ -1,13 +1,14 @@
 <?php 
 class Subscribe {
     function __construct($email) {
+        global $db;
+        $this->db = $db;
         $this->email = $email;
     }
 
     function CheckIfSubscribed() {
-        global $db;
         $sql = "SELECT * FROM `subscribers` WHERE email LIKE '{$this->email}'";
-        $pdo_statement = $db->prepare($sql);
+        $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute();
         $pdo_statement->fetchAll();
         $rows = $pdo_statement->rowCount();
@@ -19,11 +20,9 @@ class Subscribe {
     }
 
     function SubscribeEmail() {
-        global $db;
         $sql = "INSERT INTO `subscribers` (email) VALUES ('{$this->email}')";
-        $pdo_statement = $db->prepare($sql);
+        $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute();
-        // $pdo_statement->fetchAll();
     }
 
     function __destruct() {

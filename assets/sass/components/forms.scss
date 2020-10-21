@@ -8,6 +8,18 @@ form {
             transition: 0.5s;
         }
     }
+
+    select {
+        margin-bottom: 1rem;
+        height: 3.8rem !important;
+        border: 1px solid rgb(118,118,118) !important;
+        border-style: inset;
+        border-radius: 0.15rem !important;
+        option {
+            padding: 1rem;
+        }
+    }
+
     button[type=submit] {
         margin: 1rem 0rem;
     }

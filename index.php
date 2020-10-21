@@ -1,5 +1,5 @@
 <?php 
-    include_once 'views/layout/starter.php';
+    $pagetitle = "Home";
 
     $ziekenhuizen = (object) [
         'title' => 'Voor Ziekenhuizen',
@@ -10,25 +10,26 @@
 
     $huisartsen = (object) [
         'title' => 'Voor Huisartsen',
-        'text' => 'Hoe ga je als huisarts om met corona ? Hoe geef ik mijn coronapatiënten snel en efficiënt door aan andere huisartsen, contacttracers en andere patiënten die in contact zijn geweest met de besmette persoon ? Je vindt alle info op de pagina voor huisartsen.',
+        'text' => 'Hoe ga je als huisarts om met corona? Hoe geef ik mijn coronapatiënten snel en efficiënt door aan andere huisartsen, contacttracers en andere patiënten die in contact zijn geweest met de besmette persoon? Je vindt alle info op de pagina voor huisartsen.',
         'img' => 'digital_doctor.jpg',
         'url' => 'huisartsen.php',
     ];
 
     $patienten = (object) [
         'title' => 'Voor Patiënten',
-        'text' => 'Hoe ga ik correct om met corona ? Waar kan ik doorgeven met wie ik in contact gekomen ben ? Wat te doen bij besmetting ? Vindt alle info op de pagina die zich specifiek naar de patiënt toe richt.',
+        'text' => 'Hoe ga ik correct om met corona? Waar kan ik doorgeven met wie ik in contact gekomen ben? Wat te doen bij besmetting? Vindt alle info op de pagina die zich specifiek naar de patiënt toe richt.',
         'img' => 'strong.jpg',
         'url' => 'patients.php',
     ];
 
     $data_smallcards = [$patienten, $huisartsen, $ziekenhuizen]; 
-?>
 
+    include_once 'views/layout/starter.php';
+?>
 <main>
     <section class="container d-flex justify-content-between align-items-center">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-            <img src="/assets/images/best-practices-3-3.png" alt="Corona vermijden">
+            <img src="/assets/images/best-practices.png" alt="Corona vermijden">
         </div>
         <div class="d-flex flex-column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Waarom ons platform ?</h1>

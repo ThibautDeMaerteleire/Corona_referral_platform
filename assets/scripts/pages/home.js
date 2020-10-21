@@ -20,7 +20,8 @@ export class Homepage {
     this.subscribeForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       let formData = new FormData();
-      formData.append('email', e.target.email.value);
+      const email = e.target.email.value;
+      formData.append('email', email.toLowerCase());
       // Posting formdata to api
       let response = await fetch('/api/subscribe.php', {
         method: 'POST',
