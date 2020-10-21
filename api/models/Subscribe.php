@@ -34,7 +34,7 @@ class Subscribe {
         } else {
             http_response_code(200);
             $this->SubscribeEmail();
-            echo "You're added to our mailing list.";
+            echo "Your email is succesfully added to our mailing list.";
         }
     }
 }

@@ -54,6 +54,14 @@ header {
                             color: var(--dark-green);
                         }
                     }
+
+                    &.active {
+                        background-color: var(--light-green);
+                        a {
+                            color: var(--dark-green);
+                        }
+                    }
+
                     a {
                         color: var(--white);
                         font-weight: 600;

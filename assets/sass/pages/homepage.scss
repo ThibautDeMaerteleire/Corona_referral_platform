@@ -13,7 +13,29 @@
                 margin-top: 0;
             }
 
+            button {
+                transition: 0.3s;
+            }
+
+            p {
+                transition: 0.3s;
+                color: var(--dark-green);
+                width: 0%;
+                font-size: 1.8rem;
+                text-align: center;
+                font-weight: 500;
+            }
+
+            i.succesfull {
+                transition: 0.3s;
+                opacity: 0;
+                font-size: 5rem;
+                color: var(--dark-green);
+                font-weight: 600;
+            }
+
             input {
+                transition: 0.3s;
                 width: 100%;
                 margin-right: 0.5rem;
                 &:focus {
@@ -21,6 +43,30 @@
                 }
             }
 
+            .invisible {
+                transition: 0.3s;
+                margin: 0 !important;
+                padding: 0 !important;
+                opacity: 0 !important;
+                width: 0 !important;
+                display: none !important;
+            }
+
+            .visible {
+                transition: 0.3s;
+                opacity: 1 !important;
+                display: block;
+            }
+
+            .succesfullinput {
+                transition: 0.3s;
+                border: 2px solid var(--dark-green) !important;
+            }
+
+            .errorinput {
+                transition: 0.3s;
+                border: 2px solid red !important;
+            }
         }
     }
 }

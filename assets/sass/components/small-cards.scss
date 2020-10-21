@@ -6,6 +6,11 @@
     width: 30%;
     padding: 1.3rem 1.3rem 0.75rem 1.3rem;
     margin: 2rem 0rem;
+
+    &:hover {
+
+    }
+
     &_img {
     }
 
@@ -23,7 +28,9 @@
         font-size: 1.1rem;
         color: var(--white);
         &:hover {
-            color: var(--white);
+            transition: 0.3s;
+            color: var(--light-green);
+            text-decoration: none;
         }
     }
 }

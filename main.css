@@ -9911,62 +9911,62 @@ h3 {
 
 @font-face {
   font-family: "Open Sans";
-  src: url(../../fonts/Open_Sans/OpenSans-Light.ttf);
+  src: url(/assets/fonts/Open_Sans/OpenSans-Light.ttf);
   font-weight: 300;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url(../../fonts/Open_Sans/OpenSans-Regular.ttf);
+  src: url(/assets/fonts/Open_Sans/OpenSans-Regular.ttf);
   font-weight: 400;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url(../../fonts/Open_Sans/OpenSans-SemiBold.ttf);
+  src: url(/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf);
   font-weight: 500;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url(../../fonts/Open_Sans/OpenSans-Bold.ttf);
+  src: url(/assets/fonts/Open_Sans/OpenSans-Bold.ttf);
   font-weight: 600;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url(../../fonts/Open_Sans/OpenSans-ExtraBold.ttf);
+  src: url(/assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf);
   font-weight: 700;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-ExtraLight.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-ExtraLight.ttf);
   font-weight: 200;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-Light.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-Light.ttf);
   font-weight: 300;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-Regular.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-Regular.ttf);
   font-weight: 400;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-SemiBold.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-SemiBold.ttf);
   font-weight: 500;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-Bold.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-Bold.ttf);
   font-weight: 600;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-ExtraBold.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-ExtraBold.ttf);
   font-weight: 700;
 }
 @font-face {
   font-family: "Nunito";
-  src: url(../../fonts/Nunito/Nunito-Black.ttf);
+  src: url(/assets/fonts/Nunito/Nunito-Black.ttf);
   font-weight: 800;
 }
 ul {
@@ -9996,6 +9996,14 @@ hr {
   border-top: 1px solid var(--light-green);
 }
 
+a {
+  color: var(--white);
+}
+a:hover {
+  transition: 0.3s;
+  text-decoration: none;
+  color: var(--flashy-green);
+}
 a i {
   color: var(--white);
 }
@@ -10059,7 +10067,9 @@ button:hover {
   color: var(--white);
 }
 .small-card_link:hover {
-  color: var(--white);
+  transition: 0.3s;
+  color: var(--light-green);
+  text-decoration: none;
 }
 
 form input {
@@ -10104,6 +10114,20 @@ form label {
 .dashboard_block h4 {
   color: var(--white);
   margin-top: 3rem;
+}
+
+[role=alert] {
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+#alert {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: 0.5s;
 }
 
 header .header_top {
@@ -10155,6 +10179,12 @@ header .header_nav ul li:hover {
   transition: 0.3s;
 }
 header .header_nav ul li:hover a {
+  color: var(--dark-green);
+}
+header .header_nav ul li.active {
+  background-color: var(--light-green);
+}
+header .header_nav ul li.active a {
   color: var(--dark-green);
 }
 header .header_nav ul li a {
@@ -10234,12 +10264,52 @@ footer p {
   margin-bottom: 0;
   margin-top: 0;
 }
+.homepage main .subscribe button {
+  transition: 0.3s;
+}
+.homepage main .subscribe p {
+  transition: 0.3s;
+  color: var(--dark-green);
+  width: 0%;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 500;
+}
+.homepage main .subscribe i.succesfull {
+  transition: 0.3s;
+  opacity: 0;
+  font-size: 5rem;
+  color: var(--dark-green);
+  font-weight: 600;
+}
 .homepage main .subscribe input {
+  transition: 0.3s;
   width: 100%;
   margin-right: 0.5rem;
 }
 .homepage main .subscribe input:focus {
   border-color: var(--dark-green);
+}
+.homepage main .subscribe .invisible {
+  transition: 0.3s;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  display: none !important;
+}
+.homepage main .subscribe .visible {
+  transition: 0.3s;
+  opacity: 1 !important;
+  display: block;
+}
+.homepage main .subscribe .succesfullinput {
+  transition: 0.3s;
+  border: 2px solid var(--dark-green) !important;
+}
+.homepage main .subscribe .errorinput {
+  transition: 0.3s;
+  border: 2px solid red !important;
 }
 
 .loginpage main {

@@ -12,6 +12,14 @@ hr {
 }
 
 a {
+    color: var(--white);
+
+    &:hover {
+        transition: 0.3s;
+        text-decoration: none;
+        color: var(--flashy-green);
+    }
+
     i {
         color: var(--white);
     }
