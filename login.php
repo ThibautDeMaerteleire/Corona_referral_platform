@@ -1,13 +1,38 @@
 <?php
     session_start();
+    require_once 'models/Login.php';
 
     $pagetitle = "Login";
 
+    if(isset($_POST['email']) && isset($_POST['password'])) {
+        $login = new Login($_POST['email'], $_POST['password']);
+        $data = $login->__destruct();
+        if($data == 'Error email') {
+            $val = "danger";
+            $message = "Email is incorrect.";
+        } else if($data == 'Error password') {
+            $val = 'danger';
+            $message = "Password is incorrect.";
+        } else if(is_array($data) || is_object($data)) {
+            $_SESSION['id'] = $data[0]['id'];
+            $_SESSION['email'] = $data[0]['email'];
+            $_SESSION['type'] = $data[0]['type'];
+        } else {
+            $val = 'danger';
+            $message = "Something went wrong.";
+        }
+    }
 
+    require_once 'libs/AuthRedirecter.php';
 
     include_once 'views/layout/starter.php';
 ?>
 <main>
+    <?php 
+        if(isset($message)) {
+            echo "<div class='alert alert-{$val}' role='alert' style='margin-bottom: 3rem;'>{$message}</div>";
+        }
+    ?>
     <section class="container d-flex justify-content-between align-items-center">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
             <img src="/assets/images/privacy.png" alt="Corona privacy">

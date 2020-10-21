@@ -5,6 +5,7 @@ export class Layout {
     this.nav = document.querySelector('.header_nav');
     this.navitems = document.querySelectorAll('.header_nav li');
     this.main = document.querySelector('main');
+    this.footer = document.querySelector('footer');
     this.bumper = document.querySelector('.bumper');
 
     // Functions
@@ -26,12 +27,14 @@ export class Layout {
 
   stickyNav() {
     window.addEventListener('scroll', () => {
-      if(window.pageYOffset > this.header_top.offsetHeight) {
-        this.nav.classList.add('scrolled');
-        this.bumper.style.height = this.nav.offsetHeight + 'px';
-      } else {
-        this.nav.classList.remove('scrolled');
-        this.bumper.style.height = 0;
+      if(window.innerHeight < (this.main.offsetHeight + this.footer.offsetHeight)) {
+        if(window.pageYOffset < this.header_top.offsetHeight) {
+          this.nav.classList.remove('scrolled');
+          // this.bumper.style.height = 0;
+        } else {
+          this.nav.classList.add('scrolled');
+          // this.bumper.style.height = this.nav.offsetHeight + 'px';
+        }
       }
     });
   }

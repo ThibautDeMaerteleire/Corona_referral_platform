@@ -43,8 +43,7 @@ class Register {
     function __destruct() {
         if($this->CheckIfMailExists()) {
             return false;
-        }
-        if($this->CreateAccount()) {
+        } else if ($this->CreateAccount()) {
             return true;
         }
     }

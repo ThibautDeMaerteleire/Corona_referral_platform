@@ -1,17 +1,15 @@
 <?php
-    require_once 'models/Register.php';
     session_start();
+    require_once 'libs/AuthRedirecter.php';
+    require_once 'models/Register.php';
+
 
     $pagetitle = "Register";
 
-    if(isset($_SESSION['email']) && isset($_SESSION['id'])) {
-        header('/login.php');
-    }
-
     if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['type'])) {
         $registration = new Register($_POST['email'], $_POST['password'], $_POST['type']);
-        if($registration) {
-            $val = "succes";
+        if($registration->__destruct()) {
+            $val = "success";
             $message = "Your account is created.";
         } else {
             $val = "danger";
@@ -25,7 +23,7 @@
 <main>
     <?php 
         if(isset($message)) {
-            echo "<div class='alert alert-{$val}' role='alert'>{$message}</div>";
+            echo "<div class='alert alert-{$val}' role='alert' style='margin-bottom: 3rem;'>{$message}</div>";
         }
     ?>
     <section class="container d-flex justify-content-between align-items-center">
