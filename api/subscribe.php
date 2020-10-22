@@ -1,6 +1,6 @@
 <?php
-    require_once 'models/Subscribe.php';
-    require_once '../config/index.php';
+    require_once (__DIR__.'/models/Subscribe.php');
+    require_once (__DIR__.'/../libs/db.php');
 
     if(isset($_POST["email"])) {
         new Subscribe($_POST["email"]);

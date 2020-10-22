@@ -1,28 +1,28 @@
-<?php 
-    if(isset($_SESSION["type"])) {
+<?php
+    if(isset($_SESSION["type"]) && dirname($_SERVER['REQUEST_URI']) != '\\') {
         switch ($_SESSION["type"]) {
-            case 'patient':
-                include_once 'patient.php';
+            case 'Patient':
+                include_once  (__DIR__.'/patient.php');
                 break;
 
-            case 'ziekenhuis':
-                include_once 'ziekenhuis.php';
+            case 'Ziekenhuis':
+                include_once (__DIR__.'/ziekenhuis.php');
                 break;
             
-            case 'huisarts':
-                include_once 'huisarts.php';
+            case 'Huisarts':
+                include_once (__DIR__.'/huisarts.php');
                 break;
 
-            case 'contacttracer':
-                include_once 'contacttracer.php';
+            case 'Contacttracer':
+                include_once (__DIR__.'/contacttracer.php');
                 break;
 
             default:
-                include_once 'static.php';
+                include_once (__DIR__.'/static.php');
                 break;
         };
     } else {
-        include_once 'static.php';
+        include_once (__DIR__.'/static.php');
     }
 
 ?>

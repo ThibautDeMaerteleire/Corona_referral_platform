@@ -18,7 +18,7 @@
     }
 
 
-    include_once 'views/layout/starter.php';
+    include_once (__DIR__.'/views/layout/starter.php');
 ?>
 <main>
     <?php 
@@ -33,14 +33,23 @@
         </div>
         <form action="/register.php" method="POST" class="d-flex flex-column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Register</h1>
-            <input placeholder="Email" type="email" name="email" required>
-            <input placeholder="Password" type="password" name="password" required>
-            <select name="type" class="custom-select custom-select-lg" required>
-                <option value="1">Patiënt</option>
-                <option value="2">Huisarts</option>
-                <option value="3">Ziekenhuis</option>
-                <option value="4">Contacttracer</option>
-            </select>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input placeholder="Email" id="email" type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input placeholder="Password" id="password" type="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select name="type" id="type" class="custom-select custom-select-lg" required>
+                    <option value="1">Patiënt</option>
+                    <option value="2">Huisarts</option>
+                    <option value="3">Ziekenhuis</option>
+                    <option value="4">Contacttracer</option>
+                </select>
+            </div>
             <button type="submit">
                 Register
             </button>
@@ -48,5 +57,5 @@
     </section>
 </main>
 <?php 
-    include_once 'views/layout/end.php';
+    include_once (__DIR__.'/views/layout/end.php');
 ?>

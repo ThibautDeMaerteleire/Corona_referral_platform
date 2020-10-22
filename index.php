@@ -24,7 +24,7 @@
 
     $data_smallcards = [$patienten, $huisartsen, $ziekenhuizen]; 
 
-    include_once 'views/layout/starter.php';
+    include_once (__DIR__.'/views/layout/starter.php');
 ?>
 <main>
     <section class="container d-flex justify-content-between align-items-center">
@@ -47,7 +47,7 @@
                     $text = $value->text;
                     $img = $value->img;
                     $url = $value->url;
-                    include 'views/components/small-card.php';
+                    include (__DIR__.'/views/components/small-card.php');
                 }
             ?>
         </div>
@@ -64,5 +64,5 @@
 </main>
 
 <?php
-    include_once 'views/layout/end.php';
+    include_once (__DIR__.'/views/layout/end.php');
 ?>

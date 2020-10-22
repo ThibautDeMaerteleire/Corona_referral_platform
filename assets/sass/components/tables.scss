@@ -1,0 +1,22 @@
+table {
+    margin: 2rem 0rem;
+    thead {
+        tr {
+            th {
+                border: 0px !important;
+                &:first-child {
+                    border-radius: 0.25rem 0 0 0;
+                }
+                &:last-child {
+                    border-radius: 0 0.25rem 0 0;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border: 1px solid #dee2e6;
+        }
+    }
+}

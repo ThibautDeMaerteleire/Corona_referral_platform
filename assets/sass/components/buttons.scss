@@ -33,3 +33,11 @@ button {
         box-shadow: 30px 30px 30px #15BB6A66;
     }
 }
+
+.btn-3 {
+    font-size: 1rem;
+    &:hover {
+        opacity: 0.7;
+        box-shadow: 1rem 1rem 1rem var(--light-green);
+    }
+}

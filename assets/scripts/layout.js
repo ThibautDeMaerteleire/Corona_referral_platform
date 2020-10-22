@@ -19,6 +19,11 @@ export class Layout {
 
   activeHeader() {
     this.navitems.forEach((e) => {
+      // Making listitems clickable
+      e.addEventListener('click', () => {
+        window.location.pathname = e.children[0].pathname;
+      });
+      // Setting active nav element
       (e.children[0].pathname == this.url) ? 
         e.classList.add('active')
       : '';

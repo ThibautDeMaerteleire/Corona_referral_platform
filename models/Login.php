@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'config/index.php';
+require_once (__DIR__.'/../libs/db.php');
 
 class Login {
     function __construct($email, $password) {

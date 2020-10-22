@@ -21,11 +21,14 @@
             $val = 'danger';
             $message = "Something went wrong.";
         }
+    } else if(isset($_GET['logout'])) {
+        $val = 'success';
+        $message = "Succesfully logged out.";
     }
 
     require_once 'libs/AuthRedirecter.php';
 
-    include_once 'views/layout/starter.php';
+    include_once (__DIR__.'/views/layout/starter.php');
 ?>
 <main>
     <?php 
@@ -40,8 +43,14 @@
         </div>
         <form action="/login.php" method="POST" class="d-flex flex-column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Login</h1>
-            <input placeholder="Email" type="email" name="email" required>
-            <input placeholder="Password" type="password" name="password" required>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input placeholder="Email" id="email" type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input placeholder="Password" id="password" type="password" name="password" required>
+            </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="rememberme" name="rememberme" value="rememberme">
@@ -56,5 +65,5 @@
     </section>
 </main>
 <?php 
-    include_once 'views/layout/end.php';
+    include_once (__DIR__.'/views/layout/end.php');
 ?>
