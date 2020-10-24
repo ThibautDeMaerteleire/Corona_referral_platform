@@ -1,0 +1,11 @@
+hr {
+    margin: 0;
+    border-top: 1px solid var(--light-green);
+    
+    &.design_2 {
+        background-color: var(--flashy-green);
+    }
+    + form {
+        margin-top: 1.5rem;
+    }
+}

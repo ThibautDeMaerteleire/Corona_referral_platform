@@ -22,6 +22,15 @@ header {
             }
 
             .auth {
+                .thumbnail {
+                    width: 2rem;
+                    height: 2rem;
+                    margin-right: 0.5rem;
+                    background-position: center;
+                    background-size: cover;
+                    border-radius: 0.25rem;
+                }
+
                 * {
                     color: var(--dark-grey);
                     font-weight: 600;

@@ -37,5 +37,5 @@
     </div>
     <!-- Adding header -->
     <?php 
-        include_once (__DIR__.'/headers/index.php');
+        include_once (__DIR__.'/header.php');
     ?>

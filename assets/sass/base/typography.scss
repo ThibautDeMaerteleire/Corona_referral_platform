@@ -1,0 +1,9 @@
+h1.special {
+    font-weight: 900;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: inherit;
+    background: linear-gradient(to right, var(--flashy-green) 0%, var(--dark-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

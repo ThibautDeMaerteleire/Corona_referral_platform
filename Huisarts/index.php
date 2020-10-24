@@ -1,9 +1,9 @@
 <?php 
     session_start();
 
-    $pagetitle = "Overview";
+    require_once (__DIR__ . '/../libs/index.php');
 
-    require_once (__DIR__ . '/../libs/AuthRedirecter.php');
+    $pagetitle = "Overview";
 
     include_once (__DIR__.'/../views/layout/starter.php');
 ?>

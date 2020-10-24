@@ -1,6 +1,9 @@
 <?php 
 
-require_once (__DIR__.'/../libs/db.php');
+define('KB', 1024);
+define('MB', 1048576);
+define('GB', 1073741824);
+define('TB', 1099511627776);
 
 class Register {
     function __construct($email, $password, $type) {
@@ -9,6 +12,38 @@ class Register {
         $this->email = strtolower($email);
         $this->password = $password;
         $this->type = $type;
+        $this->thumbnail = $this->GetThumbnail();
+    }
+
+    function GetThumbnail() {
+        if(isset($_FILES['thumbnail'])) {
+            $thumbnail = $_FILES['thumbnail'];
+            $file_name = $thumbnail['name'];
+            $file_size = $thumbnail['size'];
+            $file_tmp = $thumbnail['tmp_name'];
+            $file_type = $thumbnail['type'];
+
+            $file_ext = explode('.',$file_name);
+            $file_ext = strtolower(end($file_ext));
+
+            $expensions = array("jpeg","jpg","png", "webp", "gif", "svg", "tif", "tiff", "raw");
+
+            if(!in_array($file_ext,$expensions) || $file_size > 250*MB){
+                return NULL;
+            }
+
+            $file_name = $this->email . "_" . $file_name;
+
+            $file_location = "/assets/images/thumbnails/".$file_name;
+
+            // Change location of file
+            move_uploaded_file($file_tmp, __DIR__ . "/.." . $file_location);
+
+            return $file_location;
+
+        } else {
+            return NULL;
+        }
     }
 
     function CheckIfMailExists() {
@@ -34,7 +69,7 @@ class Register {
 
 
     function CreateAccount() {
-        $sql = "INSERT INTO `accounts` (email, password, type) VALUES ('{$this->email}', '{$this->EncryptPassword()}', '{$this->type}')";
+        $sql = "INSERT INTO `accounts` (email, password, type, thumbnail) VALUES ('{$this->email}', '{$this->EncryptPassword()}', '{$this->type}', '{$this->thumbnail}')";
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute();
         return true;

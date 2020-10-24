@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once 'libs/AuthRedirecter.php';
-    require_once 'models/Register.php';
+    require_once (__DIR__.'/libs/index.php');
+    require_once (__DIR__.'/models/Register.php');
 
 
     $pagetitle = "Register";
@@ -31,7 +31,7 @@
             <img src="/assets/images/privacy.png" alt="Corona privacy">
             <a class="text-center w-100 d-block otherauth" href="/login.php">Login to your account</a>
         </div>
-        <form action="/register.php" method="POST" class="d-flex flex-column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <form action="/register.php" method="POST" enctype="multipart/form-data" class="d-flex flex-column col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Register</h1>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -49,6 +49,23 @@
                     <option value="3">Ziekenhuis</option>
                     <option value="4">Contacttracer</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="thumbnail">Thumbnail</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="thumbnail" id="thumbnail">
+                    <label class="custom-file-label font-weight-normal" for="thumbnail" data-browse="Afbeelding kiezen">
+                        Voeg je afbeelding toe
+                    </label>
+                </div>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="privacy" name="privacy" value="privacy" required>
+                <label class="form-check-label" for="privacy">Ik ga akkoord met het <a href="/privacy.php" target="_blank" rel="noopener noreferrer">privacybeleid</a></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rules" name="rules" value="rules" required>
+                <label class="form-check-label" for="rules">Ik ga akkoord met <a href="/rules&terms.php" target="_blank" rel="noopener noreferrer">regels & algemene voorwaarden</a></label>
             </div>
             <button type="submit">
                 Register

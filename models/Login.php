@@ -1,7 +1,5 @@
 <?php 
 
-require_once (__DIR__.'/../libs/db.php');
-
 class Login {
     function __construct($email, $password) {
         global $db;
@@ -11,7 +9,7 @@ class Login {
     }
 
     function CheckIfMailExists() {
-        $sql = "SELECT accounts.id, accounts.email, accounts.password, account_types.type  FROM `accounts` INNER JOIN `account_types` ON accounts.type = account_types.id WHERE accounts.email='{$this->email}'";
+        $sql = "SELECT accounts.id, accounts.email, accounts.password, accounts.thumbnail, account_types.type  FROM `accounts` INNER JOIN `account_types` ON accounts.type = account_types.id WHERE accounts.email='{$this->email}'";
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute();
         $data = $pdo_statement->fetchAll();
@@ -23,6 +21,12 @@ class Login {
         }
     }
 
+    function UpdateLoginTime() {
+        $sql = "UPDATE `accounts` SET login_At = NOW() WHERE email = '{$this->email}'";
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute();
+    }
+
     function CheckPassword($hashed_pwd) {
         return password_verify($this->password, $hashed_pwd);
     }
@@ -31,6 +35,7 @@ class Login {
         if($this->CheckIfMailExists()) {
             $data = $this->CheckIfMailExists();
             if($this->CheckPassword($data[0]['password'])) {
+                $this->UpdateLoginTime();
                 return $data;
             } else {
                 return "Error password";

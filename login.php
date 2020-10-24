@@ -1,5 +1,8 @@
 <?php
     session_start();
+
+    require_once (__DIR__.'/libs/db.php');
+
     require_once 'models/Login.php';
 
     $pagetitle = "Login";
@@ -17,6 +20,7 @@
             $_SESSION['id'] = $data[0]['id'];
             $_SESSION['email'] = $data[0]['email'];
             $_SESSION['type'] = $data[0]['type'];
+            $_SESSION['thumbnail'] = $data[0]['thumbnail'];
         } else {
             $val = 'danger';
             $message = "Something went wrong.";
@@ -26,7 +30,8 @@
         $message = "Succesfully logged out.";
     }
 
-    require_once 'libs/AuthRedirecter.php';
+    require_once (__DIR__.'/libs/AuthRedirecter.php');
+
 
     include_once (__DIR__.'/views/layout/starter.php');
 ?>

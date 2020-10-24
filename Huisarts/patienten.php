@@ -1,12 +1,11 @@
 <?php 
     session_start();
 
-    require_once (__DIR__.'/../libs/db.php');
+    require_once (__DIR__.'/../libs/index.php');
+
     require_once (__DIR__.'/../models/Patienten.php');
 
     $pagetitle = "Patienten";
-
-    require_once (__DIR__.'/../libs/AuthRedirecter.php');
     
     $patienten = new Patienten();
     $patientenlijst = $patienten->GetAllPatients();
@@ -14,7 +13,7 @@
 
     include_once (__DIR__.'/../views/layout/starter.php');
 ?>
-<main class="container-fluid">
+<main class="container-fluid wrapper">
     <h2>Patiënten</h2>
     <hr>
     <table class="table table-hover">
@@ -41,8 +40,6 @@
                 foreach ($patientenlijst as $value) {
                     $key++;
                     $currentKey = $key + ($page-1) *10;
-                    // var_dump($value);
-                    // echo '<br>';
                     echo "
                     <tr href='/Huisarts/patient.php?id={$value['id']}'>
                         <th scope='row'>{$currentKey}</th>
@@ -63,18 +60,27 @@
     <div class="paginering">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
                 <?php
-                    echo "<li class='page-item disbled'><a class='page-link' href='/Huisarts/patienten.php?page=<?=$page?>'><?=$page?></a></li>";
+                    $previouspage = $page-1;
+                    $nextpage = $page+1;
+                    $maxpage = ceil($totalPatients/10);
+
+                    if($page>1) {
+                        echo "<li class='page-item'><a class='page-link' href='/Huisarts/patienten.php?page=1' tabindex='-1' aria-disabled='true'>First</a></li>";
+                        echo "<li class='page-item'><a class='page-link' href='/Huisarts/patienten.php?page={$previouspage}'>{$previouspage}</a></li>";
+                    } else {
+                        echo "<li class='page-item disabled'><a class='page-link' href='/Huisarts/patienten.php?page=1' tabindex='-1' aria-disabled='true'>First</a></li>";
+                    }
+
+                    echo "<li class='page-item disabled'><a class='page-link' href='/Huisarts/patienten.php?page={$page}'>{$page}</a></li>";
+
+                    if($page<$maxpage) {
+                        echo "<li class='page-item'><a class='page-link' href='/Huisarts/patienten.php?page={$nextpage}'>{$nextpage}</a></li>";
+                        echo "<li class='page-item'><a class='page-link' href='/Huisarts/patienten.php?page={$maxpage}'>Last</a></li>";
+                    } else {
+                        echo "<li class='page-item disabled'><a class='page-link' href='/Huisarts/patienten.php?page={$maxpage}'>Last</a></li>";
+                    }
                 ?>
-                <li class="page-item"><a class="page-link" href="/Huisarts/patienten.php?page=<?=$page-1?>"><?=$page-1?></a></li>
-                <li class="page-item disbled"><a class="page-link" href="/Huisarts/patienten.php?page=<?=$page?>"><?=$page?></a></li>
-                <li class="page-item"><a class="page-link" href="/Huisarts/patienten.php?page=<?=$page+1?>"><?=$page+1?></a></li>
-                <li class="page-item">
-                <a class="page-link" href="/Huisarts/patienten.php?page=<?=$page+1?>">Next</a>
-                </li>
             </ul>
         </nav>
     </div>

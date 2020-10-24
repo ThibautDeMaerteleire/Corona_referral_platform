@@ -1,7 +1,8 @@
 <?php 
     session_start();
 
-    require_once (__DIR__.'/../libs/db.php');
+    require_once (__DIR__.'/../libs/index.php');
+
     require_once (__DIR__.'/../models/Addpatient.php');
 
     $pagetitle = "Add patient";
@@ -9,8 +10,6 @@
     if(isset($_POST['email']) && isset($_POST['rijksregisternummer']) && isset($_POST['voornaam']) && isset($_POST['achternaam']) && isset($_POST['telefoon'])) {
         $addpatient = new AddPatient();
     }
-
-    require_once (__DIR__.'/../libs/AuthRedirecter.php');
 
     include_once (__DIR__.'/../views/layout/starter.php');
 ?>

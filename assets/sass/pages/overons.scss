@@ -1,0 +1,19 @@
+.Overonspage {
+    main {
+        section {
+            margin: 4rem 0rem;
+
+            &:first-child {
+                div {
+                    p {
+                        margin-left: 0.5rem;
+                    }
+                    img {
+                        width: 90%;
+                        border-radius: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

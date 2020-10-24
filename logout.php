@@ -1,7 +1,10 @@
 <?php 
 
 session_start();
-session_destroy();
+
+require_once (__DIR__.'/libs/deleteCookiesSessions.php');
+
+Logout();
 
 function redirect($url, $statusCode = 303) {
     header('Location: ' . $url, true, $statusCode);
