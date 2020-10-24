@@ -48,3 +48,26 @@ button {
         box-shadow: 30px 30px 30px #007bff66;   
     }
 }
+
+.btn-secondary {
+    box-shadow: 8px 8px 6px #6C757D66;
+    &:hover {
+        box-shadow: 30px 30px 30px #6C757D66;   
+    }
+}
+
+.btn-warning {
+    color: var(--white);
+    box-shadow: 8px 8px 6px #ffc10766;
+    &:hover {
+        color: var(--white);
+        box-shadow: 30px 30px 30px #ffc10766;   
+    }
+}
+
+.btn-danger {
+    box-shadow: 8px 8px 6px #DC354566;
+    &:hover {
+        box-shadow: 30px 30px 30px #DC354566;
+    }
+}

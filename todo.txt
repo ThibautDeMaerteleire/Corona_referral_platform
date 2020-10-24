@@ -1,0 +1,6 @@
+deletepatient.php maken
+wanneer patient gedelete is alert message weergeven op patienten.php pagina
+
+Model Patienten aanpassen naar Huisarts.php
+
+tests in database opsplitsen in aparte tabel

@@ -24,10 +24,10 @@
 
     include_once (__DIR__.'/../views/layout/starter.php');
 ?>
-<main class="container wrapper">
+<main class="container wrapper patientdetail">
     <?php 
         if(isset($result_updated)) {
-            echo "<div class='alert alert-succes w-100' role='alert'>Updated test result succesfully</div>";
+            echo "<div class='alert alert-success w-100' role='alert'>Updated test result succesfully</div>";
         }
     ?>
     <h2><?=$patientdata['voornaam']?> <?=$patientdata['achternaam']?></h2>
@@ -35,11 +35,21 @@
     <form action="/Huisarts/patient.php?id=<?=$id?>" method="POST">
         <div class="form-group">
             <label>Naam</label>
-            <p><?=$patientdata['voornaam']?> <?=$patientdata['achternaam']?></p>
+            <input type="text" value="<?=$patientdata['voornaam']?> <?=$patientdata['achternaam']?>" disabled>
         </div>
         <div class="form-group">
             <label>Email</label>
-            <p><?=$patientdata['email']?></p>
+            <input type="text" value="<?=$patientdata['email']?>" disabled>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Telefoonnummer</label>
+                <input type="tel" value="<?=$patientdata['telefoon']?>" disabled>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Rijksregisternummer</label>
+                <input type="text" value="<?=$patientdata['rijksregisternummer']?>" disabled>
+            </div>
         </div>
         <div class="form-group">
             <label for="test_result">Test resultaat</label>
@@ -51,10 +61,16 @@
         </div>
         <div class="form-group">
             <label>Datum test</label>
-            <p><?=$patientdata['created_At']?></p>
+            <input type="text" value="<?=$patientdata['created_At']?>" disabled>
         </div>
         <button type="submit" class="btn btn-primary">
             Update testresult
+        </button>
+        <button type="button" href='/Huisarts/editpatient.php?id=<?=$id?>' class="btn btn-warning">
+            Edit data
+        </button>
+        <button type="button" href="/Huisarts/deletepatient.php?id=<?=$_GET['id']?>" class="btn btn-danger">
+            Delete patient
         </button>
     </form>
 </main>

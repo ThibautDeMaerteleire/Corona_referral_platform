@@ -23,6 +23,13 @@ class Patienten {
         return $data;
     }
 
+    function UpdatePatientData($id) {
+        $sql = "UPDATE `patients` SET voornaam = '{$_POST['voornaam']}', achternaam = '{$_POST['achternaam']}', email = '{$_POST['email']}', rijksregisternummer = '{$_POST['rijksregisternummer']}', telefoon = '{$_POST['telefoon']}', test_result = '{$_POST['test_result']}', created_At = '{$_POST['created_At']}' WHERE huisartsID = '{$_SESSION['id']}' AND id = '{$id}'";
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute();
+        return true;
+    }
+
     function UpdateTestResultPatient($id) {
         $sql = "UPDATE `patients` SET test_result = '{$_POST['test_result']}' WHERE huisartsID = '{$_SESSION['id']}' AND id = '{$id}'";
         $pdo_statement = $this->db->prepare($sql);
