@@ -4,3 +4,7 @@ wanneer patient gedelete is alert message weergeven op patienten.php pagina
 Model Patienten aanpassen naar Huisarts.php
 
 tests in database opsplitsen in aparte tabel
+
+Cookies toevoegen aan login zodat ingelogde persoon niet voor onbeperkte tijd ingelogd blijft
+
+covid tests in aparte tabel aanmaken
