@@ -1,5 +1,5 @@
 form {
-    input {
+    input, textarea {
         padding: 1rem;
         margin-bottom: 0.5rem;
         transition: 0.5s;
@@ -12,6 +12,12 @@ form {
                 cursor: pointer;
             }
         }
+
+        &[type=datetime-local] {
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 
     select {
@@ -20,6 +26,9 @@ form {
         border: 1px solid rgb(118,118,118) !important;
         border-style: inset;
         border-radius: 0.15rem !important;
+        &.custom-select {
+            height: fit-content !important;
+        }
         &:hover {
             cursor: pointer;
         }

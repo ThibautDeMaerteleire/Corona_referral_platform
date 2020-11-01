@@ -1,6 +1,6 @@
-<div href="/<?=$url?>" class="small-card">
-    <img class="small-card_img" src="/assets/images/<?=$img?>" alt="<?=$title?>">
-    <h4 class="small-card_title"><?=$title?></h4>
-    <p class="small-card_text"><?=$text?></p>
-    <a class="small-card_link" href="<?=$url?>">Read more</a>
+<div href="/<?=$item['url']?>" class="small-card">
+    <img class="small-card_img" src="/assets/images/<?=$item['img']?>" alt="<?=$item['title']?>">
+    <h4 class="small-card_title"><?=$item['title']?></h4>
+    <p class="small-card_text"><?=$item['text']?></p>
+    <a class="small-card_link" href="<?=$item['url']?>">Read more</a>
 </div>

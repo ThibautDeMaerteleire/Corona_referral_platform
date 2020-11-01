@@ -58,14 +58,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="test_result">Test resultaat</label>
-            <select name="test_result" id="test_result"><?=$patientdata['created_At']?>
-                <option <?php if($patientdata['test_result'] == 'Negative') echo 'selected' ?>>Negative</option>
-                <option <?php if($patientdata['test_result'] == 'In progress') echo 'selected' ?>>In progress</option>
-                <option <?php if($patientdata['test_result'] == 'Positive') echo 'selected' ?>>Positive</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label for="datum">Datum test</label>
             <input type="text" name="created_At" id="datum" value="<?=$patientdata['created_At']?>" placeholder="Datum">
         </div>

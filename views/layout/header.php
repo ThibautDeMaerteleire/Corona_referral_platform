@@ -1,7 +1,14 @@
-<header>
+<?php
+    if(isset($_SESSION['type'])) {
+        $homeurl = "/{$_SESSION['type']}/";
+    } else {
+        $homeurl = '/';
+    }
+?>
+<header class="">
     <section class="header_top">
         <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a href="/" class="logo">Corona Referral</a>
+            <a href="<?=$homeurl?>" class="logo">Corona Referral</a>
             <p>&#9995;  Check out our new version  &#9995;</p>
             <div class="auth d-flex">
                 <?php 
@@ -33,32 +40,6 @@
         </div>
     </section>
 <?php
-
-    if(isset($_SESSION["type"]) && dirname($_SERVER['REQUEST_URI']) != '\\') {
-        switch ($_SESSION["type"]) {
-            case 'Patient':
-                include_once  (__DIR__.'/navigations/patient.php');
-                break;
-
-            case 'Ziekenhuis':
-                include_once (__DIR__.'/navigations/ziekenhuis.php');
-                break;
-            
-            case 'Huisarts':
-                include_once (__DIR__.'/navigations/huisarts.php');
-                break;
-
-            case 'Contacttracer':
-                include_once (__DIR__.'/navigations/contacttracer.php');
-                break;
-
-            default:
-                include_once (__DIR__.'/navigations/static.php');
-                break;
-        };
-    } else {
-        include_once (__DIR__.'/navigations/static.php');
-    }
-
+    include_once 'navigation.php';
 ?>
 </header>

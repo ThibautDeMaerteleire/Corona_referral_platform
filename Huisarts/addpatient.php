@@ -16,7 +16,7 @@
 <main class="container">
     <?php 
         if(isset($addpatient)) {
-            echo "<div class='alert alert-success' role='alert' style='margin-bottom: 3rem;'>Succesfully added {$_POST['voornaam']} {$_POST['achternaam']} to your patients list.</div>";
+            echo "<div class='alert alert-success' role='alert' style='margin-bottom: 3rem;'>Je hebt {$_POST['voornaam']} {$_POST['achternaam']} succesvol aan je patiëntenlijst toegevoegd.</div>";
         }
     ?>
     <h2>Patiënt toevoegen</h2>
@@ -48,7 +48,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
-                <button type="submit" class="btn-3">Add patient</button>
+                <button type="submit" class="btn-3">Patiënt toevoegen</button>
             </div>
         </div>
     </form>

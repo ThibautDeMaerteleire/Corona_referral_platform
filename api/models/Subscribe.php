@@ -7,9 +7,11 @@ class Subscribe {
     }
 
     function CheckIfSubscribed() {
-        $sql = "SELECT * FROM `subscribers` WHERE email LIKE '{$this->email}'";
+        $sql = "SELECT * FROM `subscribers` WHERE email LIKE :email";
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute();
+        $pdo_statement->execute([
+            ':email' => $this->email,
+        ]);
         $pdo_statement->fetchAll();
         $rows = $pdo_statement->rowCount();
         if($rows > 0) {
@@ -20,9 +22,11 @@ class Subscribe {
     }
 
     function SubscribeEmail() {
-        $sql = "INSERT INTO `subscribers` (email) VALUES ('{$this->email}')";
+        $sql = "INSERT INTO `subscribers` (email) VALUES (:email)";
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute();
+        $pdo_statement->execute([
+            ':email' => $this->email
+        ]);
     }
 
     function __destruct() {

@@ -69,7 +69,10 @@ class Register {
 
 
     function CreateAccount() {
-        $sql = "INSERT INTO `accounts` (email, password, type, thumbnail) VALUES ('{$this->email}', '{$this->EncryptPassword()}', '{$this->type}', '{$this->thumbnail}')";
+        $sql = "INSERT INTO `accounts` 
+                (email, password, type, thumbnail) 
+                VALUES 
+                ('{$this->email}', '{$this->EncryptPassword()}', '{$this->type}', '{$this->thumbnail}')";
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute();
         return true;

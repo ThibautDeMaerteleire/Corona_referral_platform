@@ -8,3 +8,5 @@ tests in database opsplitsen in aparte tabel
 Cookies toevoegen aan login zodat ingelogde persoon niet voor onbeperkte tijd ingelogd blijft
 
 covid tests in aparte tabel aanmaken
+
+zoekbalk header afmaken

@@ -1,6 +1,6 @@
 .dashboard {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     &_block {
         width: 23%;

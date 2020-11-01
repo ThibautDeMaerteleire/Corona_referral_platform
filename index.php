@@ -1,30 +1,11 @@
 <?php 
     $pagetitle = "Home";
 
-    $ziekenhuizen = (object) [
-        'title' => 'Voor Ziekenhuizen',
-        'text' => 'Geef jouw cijfers van de ziekenhuizen door, hou bij wie besmet is en onderhoud direct contact met de contacttracers door de besmette patiënten direct door te geven.',
-        'img' => 'hospital_healthcare.jpg',
-        'url' => 'ziekenhuizen.php',
-    ];
-
-    $huisartsen = (object) [
-        'title' => 'Voor Huisartsen',
-        'text' => 'Hoe ga je als huisarts om met corona? Hoe geef ik mijn coronapatiënten snel en efficiënt door aan andere huisartsen, contacttracers en andere patiënten die in contact zijn geweest met de besmette persoon? Je vindt alle info op de pagina voor huisartsen.',
-        'img' => 'digital_doctor.jpg',
-        'url' => 'huisartsen.php',
-    ];
-
-    $patienten = (object) [
-        'title' => 'Voor Patiënten',
-        'text' => 'Hoe ga ik correct om met corona? Waar kan ik doorgeven met wie ik in contact gekomen ben? Wat te doen bij besmetting? Vindt alle info op de pagina die zich specifiek naar de patiënt toe richt.',
-        'img' => 'strong.jpg',
-        'url' => 'patients.php',
-    ];
-
-    $data_smallcards = [$patienten, $huisartsen, $ziekenhuizen]; 
-
     include_once (__DIR__.'/views/layout/starter.php');
+
+    include_once (__DIR__.'/models/Home.php');
+    $Home = new Home();
+    $data_smallcards = $Home->GetAllInfoCards(); 
 ?>
 <main>
     <section class="container d-flex justify-content-between align-items-center">
@@ -42,11 +23,7 @@
         <h1 class="text-center">Onze doelgroepen</h1>
         <div class="container d-flex justify-content-between align-items-center">
             <?php 
-                foreach ($data_smallcards as $value) {
-                    $title = $value->title;
-                    $text = $value->text;
-                    $img = $value->img;
-                    $url = $value->url;
+                foreach ($data_smallcards as $item) {
                     include (__DIR__.'/views/components/small-card.php');
                 }
             ?>

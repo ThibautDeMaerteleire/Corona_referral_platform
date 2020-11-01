@@ -9,9 +9,14 @@ class Login {
     }
 
     function CheckIfMailExists() {
-        $sql = "SELECT accounts.id, accounts.email, accounts.password, accounts.thumbnail, account_types.type  FROM `accounts` INNER JOIN `account_types` ON accounts.type = account_types.id WHERE accounts.email='{$this->email}'";
+        $sql = "SELECT accounts.id, accounts.email, accounts.password, accounts.thumbnail, account_types.type  
+                FROM `accounts` 
+                INNER JOIN `account_types` ON accounts.type = account_types.id 
+                WHERE accounts.email = :email";
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute();
+        $pdo_statement->execute([
+            ':email' => $this->email,
+        ]);
         $data = $pdo_statement->fetchAll();
         $rows = $pdo_statement->rowCount();
         if($rows > 0) {
@@ -22,9 +27,11 @@ class Login {
     }
 
     function UpdateLoginTime() {
-        $sql = "UPDATE `accounts` SET login_At = NOW() WHERE email = '{$this->email}'";
+        $sql = "UPDATE `accounts` SET login_At = NOW() WHERE email = :email";
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute();
+        $pdo_statement->execute([
+            ':email' => $this->email,
+        ]);
     }
 
     function CheckPassword($hashed_pwd) {

@@ -25,6 +25,7 @@
             $val = 'danger';
             $message = "Something went wrong.";
         }
+        
     } else if(isset($_GET['logout'])) {
         $val = 'success';
         $message = "Succesfully logged out.";

@@ -5,6 +5,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import '../../../node_modules/animate.css/animate.css';
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -10161,16 +10162,19 @@ button:hover {
   padding: 0.5rem;
 }
 
-form input {
+form input, form textarea {
   padding: 1rem;
   margin-bottom: 0.5rem;
   transition: 0.5s;
 }
-form input:focus {
+form input:focus, form textarea:focus {
   background-color: var(--light-green);
   transition: 0.5s;
 }
-form input[type=checkbox]:hover {
+form input[type=checkbox]:hover, form textarea[type=checkbox]:hover {
+  cursor: pointer;
+}
+form input[type=datetime-local]:hover, form textarea[type=datetime-local]:hover {
   cursor: pointer;
 }
 form select {
@@ -10179,6 +10183,9 @@ form select {
   border: 1px solid #767676 !important;
   border-style: inset;
   border-radius: 0.15rem !important;
+}
+form select.custom-select {
+  height: fit-content !important;
 }
 form select:hover {
   cursor: pointer;
@@ -10205,7 +10212,7 @@ form .form-group label {
 
 .dashboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 .dashboard_block {
@@ -10347,6 +10354,54 @@ hr.design_2 {
 }
 hr + form {
   margin-top: 1.5rem;
+}
+
+.autocompletion {
+  transition: all 0.3s;
+  display: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.autocompletion.show {
+  transition: all 0.3s;
+  display: block;
+  border: 1px solid var(--light-grey);
+  border-top: 0px;
+  border-radius: 0 0 0.25rem 0.25rem;
+  margin-top: -12px;
+  z-index: 999;
+}
+.autocompletion.show p {
+  transition: all 0.3s;
+  margin: 0;
+  width: 100%;
+  width: 318px;
+  border-top: 1px solid var(--light-grey);
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  background-color: var(--white);
+}
+.autocompletion.show p a {
+  transition: all 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  color: var(--dark-grey);
+}
+.autocompletion.show p a:hover {
+  color: var(--white) !important;
+}
+.autocompletion.show p:last-child {
+  border-radius: 0 0 0.185rem 0.185rem;
+}
+.autocompletion.show p:hover {
+  background-color: var(--flashy-green);
+  cursor: pointer;
+}
+.autocompletion.show p:hover a {
+  color: var(--white) !important;
 }
 
 header .header_top {
@@ -10620,6 +10675,37 @@ footer p {
 }
 .patientdetail button {
   margin-right: 0.5rem !important;
+}
+
+.Searchpage .search__item {
+  transition: all 0.3s;
+  width: 31%;
+  margin-right: 3.5%;
+  margin-bottom: 1rem;
+  border: 2px solid var(--dark-green);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  color: var(--dark-green);
+}
+.Searchpage .search__item:hover {
+  cursor: pointer;
+  border: 2px solid var(--flashy-green);
+  color: var(--flashy-green);
+}
+.Searchpage .search__item .title {
+  display: flex;
+  align-items: baseline;
+  text-transform: capitalize;
+}
+.Searchpage .search__item .title > *:first-child {
+  margin-right: 0.5rem;
+}
+.Searchpage .search__item p {
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
+}
+.Searchpage .search__item:nth-child(3n) {
+  margin-right: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

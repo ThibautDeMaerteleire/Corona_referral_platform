@@ -1,0 +1,37 @@
+.Searchpage {
+    .search {
+        &__item {
+            transition: all 0.3s;
+            width: 31%;
+            margin-right: 3.5%;
+            margin-bottom: 1rem;
+            border: 2px solid var(--dark-green);
+            border-radius: 0.25rem;
+            padding: 1rem;
+            color: var(--dark-green);
+
+            &:hover {
+                cursor: pointer;
+                border: 2px solid var(--flashy-green);
+                color: var(--flashy-green);
+            }
+            .title {
+                display: flex;
+                align-items: baseline;
+                text-transform: capitalize;
+                & > * {
+                    &:first-child {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+            p {
+                margin-top: 0.5rem;
+                margin-bottom: 0rem;
+            }
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+}

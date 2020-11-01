@@ -12,13 +12,14 @@
     }
 
     $patient = new Patienten();
-
-    if(isset($_POST['test_result'])) {
-        $result_updated = $patient->UpdateTestResultPatient($id);
-    }
-
     $patientdata = $patient->GetPatient($id);
 
+    if($patientdata) {
+        $covidtests = $patient->GetPatientCovidTests($id);
+    } else {
+        redirect("/404.php");
+        die;
+    }
 
     $pagetitle = "Patient";
 
@@ -52,21 +53,38 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="test_result">Test resultaat</label>
-            <select name="test_result" id="test_result"><?=$patientdata['created_At']?>
-                <option <?php if($patientdata['test_result'] == 'Negative') echo 'selected' ?>>Negative</option>
-                <option <?php if($patientdata['test_result'] == 'In progress') echo 'selected' ?>>In progress</option>
-                <option <?php if($patientdata['test_result'] == 'Positive') echo 'selected' ?>>Positive</option>
-            </select>
+            <label for="Covid tests">Test results</label>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Test resultaat</th>
+                        <th scope="col">Datum test</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        if(!!$covidtests) {
+                            foreach ($covidtests as $key => $value) {
+                                $nr = $key + 1;
+                                echo "<tr>
+                                        <th scope='row'>{$nr}</th>
+                                        <td>{$value['test_result']}</td>
+                                        <td>{$value['created_At']}</td>
+                                    </tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='3'>No covid tests yet.</td></tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
         <div class="form-group">
-            <label>Datum test</label>
+            <label>Patiënt toegevoegd op:</label>
             <input type="text" value="<?=$patientdata['created_At']?>" disabled>
         </div>
-        <button type="submit" class="btn btn-primary">
-            Update testresult
-        </button>
-        <button type="button" href='/Huisarts/editpatient.php?id=<?=$id?>' class="btn btn-warning">
+        <button type="button" href='/Huisarts/editpatient.php?id=<?=$id?>' class="btn btn-primary">
             Edit data
         </button>
         <button type="button" href="/Huisarts/deletepatient.php?id=<?=$_GET['id']?>" class="btn btn-danger">
