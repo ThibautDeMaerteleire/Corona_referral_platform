@@ -1,6 +1,6 @@
 <?php 
     include_once (__DIR__.'/../../models/Navigation.php');
-    if(!isset($db)) include_once (__DIR__.'/../../libs/db.php');
+    if(!isset($db)) include_once (__DIR__.'/../../libs/config.php');
 
     $Navigation = new Navigation();
     $navitems = $Navigation->GetTypeNavigation();

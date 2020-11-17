@@ -50,7 +50,7 @@ class Patienten {
             ':huisartsID' => $_SESSION['id'],
             ':patientID' => $patientID,
         ]);
-        return $pdo_statement->fetch()[0];
+        return $pdo_statement->fetch();
     }
 
     function AddCovidTest() {
@@ -64,6 +64,8 @@ class Patienten {
 
         if(!!$previousdate) {
             if(strtotime($previousdate) <= strtotime($_POST['date'])) $sql .= "UPDATE `patients` SET `last_covid-test_id` = :lastid WHERE id = :patientID";
+        } else {
+            $sql .= "UPDATE `patients` SET `last_covid-test_id` = :lastid WHERE id = :patientID";
         }
 
         $pdo_statement = $this->db->prepare($sql);
@@ -74,6 +76,8 @@ class Patienten {
 
         if(!!$previousdate) {
             if(strtotime($previousdate) <= strtotime($_POST['date'])) $pdo_statement->bindParam(':lastid', $lastid, PDO::PARAM_INT);
+        } else {
+            $pdo_statement->bindParam(':lastid', $lastid, PDO::PARAM_INT);
         }
 
         $pdo_statement->execute();
@@ -229,7 +233,58 @@ class Patienten {
         return $pdo_statement->fetch()[0];
     }
 
-    function __destruct() {
-    
+    function GetPatientWithEmailOrRijksregister($email, $rijksregisternummer, $type = false) {
+        $sql = "SELECT id FROM `patients` WHERE (rijksregisternummer = :rijksregisternummer OR email = :email)";
+
+        if(!!$type) $sql .= " AND type = :type";
+
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([
+            ':rijksregisternummer' => $rijksregisternummer,
+            ':email' => $email,
+        ]);
+        $data = $pdo_statement->fetch();
+        if(!$data) return NULL;
+        return $data['id'];
+    }
+
+    function AddPatient() {
+        require (__DIR__.'/Account.php');
+        $account = new Account();
+        $accountID = $account->GetAccountWithEmailOrRijksregister($_POST['email'], $_POST['rijksregisternummer'], 1);
+
+        $sql = 'INSERT INTO `patients` 
+                (huisartsID, accountID, rijksregisternummer, email, voornaam, achternaam, telefoon) 
+                VALUES 
+                (:huisartsID, :accountID, :rijksregisternummer, :email, :voornaam, :achternaam, :telefoon)';
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([
+            ':huisartsID' => $_SESSION['id'],
+            ':accountID' => $accountID,
+            ':rijksregisternummer' => $_POST['rijksregisternummer'],
+            ':email' => $_POST['email'],
+            ':voornaam' => $_POST['voornaam'],
+            ':achternaam' => $_POST['achternaam'],
+            ':telefoon' => $_POST['telefoon'],
+        ]);
+        return true;
+    }
+
+    function DeletePatient() {
+        $id = $_GET['id'];
+        $huisartsID =  $_SESSION['id'];
+        $patientdata = $this->GetPatient($id);
+        if(!isset($patientdata)) return false;
+        if($patientdata['id'] == $id && $patientdata['huisartsID'] == $huisartsID) {
+            $sql = "DELETE FROM `patients` WHERE huisartsID = :huisartsID AND id = :id";
+            $pdo = $this->db->prepare($sql);
+            $pdo->execute([
+                ':huisartsID' => $huisartsID,
+                ':id' => $id,
+            ]);
+            return "{$patientdata['voornaam']} {$patientdata['achternaam']}";
+        } else {
+            return false;
+        }
     }
 }

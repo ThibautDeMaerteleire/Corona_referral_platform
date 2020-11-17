@@ -1,7 +1,7 @@
 <?php 
 
 require_once (__DIR__.'/models/AutocompleteSearch.php');
-require_once (__DIR__.'/../libs/db.php');
+require_once (__DIR__.'/../libs/config.php');
 
 if(isset($_POST["search"]) && isset($_POST['huisartsID'])) {
     new Autocomplete($_POST["search"]);

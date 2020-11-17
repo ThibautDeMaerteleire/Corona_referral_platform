@@ -35,7 +35,7 @@
             <h1>Register</h1>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input placeholder="Email" id="email" type="email" name="email" required>
+                <input placeholder="Email" id="email" type="email" name="email" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

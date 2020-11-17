@@ -2,7 +2,7 @@
 <?php
     foreach ($patientenlijst as $value) {
 ?>   
-    <div class="search__item">
+    <div href="/<?=$_SESSION['type']?>/patient.php?id=<?=$value['id']?>" class="search__item">
         <div class="title">
             <h3><?=$value['achternaam']?></h3>
             <h5><?=$value['voornaam']?></h5>

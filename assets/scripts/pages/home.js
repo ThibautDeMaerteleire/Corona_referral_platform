@@ -13,7 +13,9 @@ export class Homepage {
   }
 
   async SubscribeMain() {
-    this.SubscribeForm();
+    if(!!this.subscribeForm) {
+      this.SubscribeForm();
+    }
   }
 
   async SubscribeForm() {

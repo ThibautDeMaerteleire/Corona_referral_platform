@@ -3,7 +3,7 @@ export class Overonspage {
     this.DOMAllTeammembers = document.querySelectorAll('.teammember');
 
     // Functions
-    this.MakeTeammembersLinkable();
+    if(!!this.DOMAllTeammembers) this.MakeTeammembersLinkable();
   }
 
   MakeTeammembersLinkable() {

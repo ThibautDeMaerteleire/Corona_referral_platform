@@ -3,12 +3,13 @@
 
     require_once (__DIR__.'/../libs/index.php');
 
-    require_once (__DIR__.'/../models/Addpatient.php');
+    require_once (__DIR__.'/../models/Patienten.php');
 
     $pagetitle = "Add patient";
 
     if(isset($_POST['email']) && isset($_POST['rijksregisternummer']) && isset($_POST['voornaam']) && isset($_POST['achternaam']) && isset($_POST['telefoon'])) {
-        $addpatient = new AddPatient();
+        $patienten = new Patienten();
+        $addpatient = $patienten->AddPatient();
     }
 
     include_once (__DIR__.'/../views/layout/starter.php');

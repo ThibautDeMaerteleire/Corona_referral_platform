@@ -10360,12 +10360,11 @@ hr + form {
   transition: all 0.3s;
   display: none;
   position: absolute;
-  display: flex;
-  flex-direction: column;
 }
 .autocompletion.show {
+  display: flex;
+  flex-direction: column;
   transition: all 0.3s;
-  display: block;
   border: 1px solid var(--light-grey);
   border-top: 0px;
   border-radius: 0 0 0.25rem 0.25rem;

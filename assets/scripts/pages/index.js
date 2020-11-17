@@ -1,17 +1,9 @@
-import {Homepage} from './home.js';
-import {Overonspage} from './overons.js';
+import { Homepage } from './home.js';
+import { Overonspage } from './overons.js';
+import { SearchPage } from './search.js';
 
 export const LaunchPages = () => {
-  switch (window.location.pathname) {
-    case "/":
-      new Homepage();
-      break;
-    
-    case "/overons.php":
-      new Overonspage();
-      break;
-    
-    default:
-      break;
-  }
+  new Homepage();
+  new Overonspage();
+  new SearchPage();
 };

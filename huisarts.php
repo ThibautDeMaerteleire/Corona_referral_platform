@@ -5,7 +5,7 @@
 
 ?>
 <main class="container wrapper">
-
+    <?php include_once (__DIR__.'/views/components/comingsoon.php'); ?>
 </main>
 
 <?php

@@ -47,9 +47,11 @@ class Register {
     }
 
     function CheckIfMailExists() {
-        $sql = "SELECT * FROM `accounts` WHERE email LIKE '{$this->email}'";
+        $sql = "SELECT * FROM `accounts` WHERE email LIKE :email";
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute();
+        $pdo_statement->execute([
+            ':email' => $this->email
+        ]);
         $pdo_statement->fetchAll();
         $rows = $pdo_statement->rowCount();
         if($rows > 0) {
@@ -72,9 +74,14 @@ class Register {
         $sql = "INSERT INTO `accounts` 
                 (email, password, type, thumbnail) 
                 VALUES 
-                ('{$this->email}', '{$this->EncryptPassword()}', '{$this->type}', '{$this->thumbnail}')";
+                (:email, :password, :type, :thumbnail)";
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute();
+        $pdo_statement->execute([
+            ':email' => $this->email,
+            ':password' => $this->EncryptPassword(),
+            ':type' => $this->type,
+            ':thumbnail' => $this->thumbnail
+        ]);
         return true;
     }
 

@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    require_once (__DIR__.'/libs/db.php');
+    require_once (__DIR__.'/libs/config.php');
 
     require_once 'models/Login.php';
 
@@ -51,7 +51,7 @@
             <h1>Login</h1>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input placeholder="Email" id="email" type="email" name="email" required>
+                <input placeholder="Email" id="email" type="email" name="email" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
